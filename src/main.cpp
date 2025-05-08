@@ -35,16 +35,19 @@ void redRingSide() { //should work
     chassis.moveToPoint(-7, 3.4, 1000); //-6.3, 2.7
     chassis.waitUntilDone();
     pidActive = true;
-    lbTarget = 195;
+    lbTarget = 205;
 
     pros::delay(500);//750
-    pidActive = true;
-    lbTarget = 2;
+    // pidActive = true;
+    // lbTarget = 2;
 
     //mogo
     // chassis.moveToPoint(5.3, -7.2, 750, {.forwards = false});
     // chassis.turnToHeading(0, 500);
-    chassis.moveToPose(4, -24, 0, 2400, {.forwards = false, .minSpeed = 40});
+    chassis.moveToPose(4, -24, 0, 2400, {.forwards = false, .minSpeed = 60});
+    pros::delay(250);
+    pidActive = true;
+    lbTarget = 2;
     chassis.moveToPoint(4, -32, 1000, {.forwards = false, .maxSpeed = 40});
     // chassis.moveToPose(6.9, -30.5, 0, 2400, {.forwards = false, .lead = 0.2, .minSpeed = 50}); //try changing to move to pose
     chassis.waitUntilDone();
@@ -57,8 +60,8 @@ void redRingSide() { //should work
     chassis.turnToHeading(132.1,3000, {.minSpeed = 70});
     chassis.waitUntilDone();
     intakeState = 1;
-    chassis.moveToPose(35, -39.5, 90, 1000, {.minSpeed = 70});
-    chassis.moveToPoint(41.5, -39.5, 1000, {.maxSpeed = 60}); //TODO: prev 43.25
+    chassis.moveToPose(35, -41, 90, 1000, {.minSpeed = 70});
+    chassis.moveToPoint(41.5, -41, 1000, {.maxSpeed = 60}); //TODO: prev 43.25
     chassis.waitUntilDone();
     pros::delay(250);
 
@@ -74,22 +77,21 @@ void redRingSide() { //should work
     chassis.moveToPose(7.6, -22.7, 138, 1500, {.forwards = false, .minSpeed = 90});
     chassis.waitUntilDone();
     chassis.turnToHeading(84, 500);
-    chassis.moveToPoint(29.7, -23.6, 1000, {.minSpeed = 100});
+    chassis.moveToPoint(35, -23.6, 1000, {.minSpeed = 100});
     chassis.waitUntilDone();
-    pros::delay(250);
+    pros::delay(1000);
+    
+    // //ring stack
+    // chassis.turnToHeading(0, 500);
+    // chassis.moveToPoint(38.5, -3, 1000);
+    // chass
 
+    // return;
+
+    //ladder
     chassis.turnToHeading(-90, 1000);
     chassis.moveToPoint(-17, -23.6, 5000, {.maxSpeed = 80});
-    // //ring stack
-    // chassis.moveToPose(43, 8, 42.4, 3000, {.minSpeed = 60}); //60
-    // chassis.waitUntilDone();
-
-    // intakeState = 2;
-    // chassis.moveToPoint(45.47, 12.44, 750, {.minSpeed = 100}); //100
-    // chassis.waitUntilDone();
-    // pros::delay(350);
-    // intakeState = 1;
-    // pros::delay(500);
+    
 
     // //fifth ring
     // chassis.moveToPoint(32.9, -4.3, 1000, {.forwards = false, .maxSpeed = 50});
@@ -116,12 +118,15 @@ void blueRingSide() { //should work
     lbTarget = 195;
 
     pros::delay(500);//750
-    pidActive = true;
-    lbTarget = 2;
+    // pidActive = true;
+    // lbTarget = 2;
 
     //mogo
    
     chassis.moveToPose(-4.5, -24, 0, 2400, {.forwards = false,  .minSpeed = 40});
+    pros::delay(250);
+    pidActive = true;
+    lbTarget = 2;
     chassis.moveToPoint(-4.5, -34, 1000, {.forwards = false, .maxSpeed = 40});
     
     chassis.waitUntilDone();
@@ -134,8 +139,8 @@ void blueRingSide() { //should work
     chassis.turnToHeading(-150.7,3000, {.minSpeed = 70});
     chassis.waitUntilDone();
     intakeState = 1;
-    chassis.moveToPose(-35, -50, -90, 1000, {.minSpeed = 70});
-    chassis.moveToPoint(-39.5, -50, 1000, {.maxSpeed = 60}); //TODO: prev 43.25
+    chassis.moveToPose(-35, -49, -90, 1000, {.minSpeed = 70});
+    chassis.moveToPoint(-39.5, -49, 1000, {.maxSpeed = 60}); //TODO: prev 43.25
     chassis.waitUntilDone();
     pros::delay(500);
 
@@ -145,10 +150,9 @@ void blueRingSide() { //should work
     chassis.moveToPose(-1, -30.2, -136, 1500, {.forwards = false, .minSpeed = 90});
     chassis.waitUntilDone();
     chassis.turnToHeading(-85, 900);
-     chassis.moveToPoint(-23.9, -36, 2000);
-    // chassis.waitUntilDone();
-    // pros::delay(100);
-    pros::delay(1000);
+    chassis.moveToPoint(-23.9, -36, 2000);
+    chassis.waitUntilDone();
+    pros::delay(2000);
     chassis.turnToHeading(90, 1000);
     chassis.moveToPoint(16.1, -39.1 , 5000, {.maxSpeed = 80});
     
@@ -192,11 +196,11 @@ void blueMogo() {
 
     chassis.turnToHeading(45, 1000);
     chassis.waitUntilDone();
-    intakeState = 2;
+    //intakeState = 2;
 
     chassis.moveToPoint(38, 13, 2000); //9
     chassis.waitUntilDone();
-    intakeState = 1;
+    //intakeState = 1;
 
     pros::delay(1500);
 
@@ -314,8 +318,10 @@ void redMogo() { //YAY WORKS
     
 
     //turn and go to ring # 2 
-
+    pros::delay(1000);
     chassis.turnToHeading(0, 1000);
+    chassis.waitUntilDone();
+    pros::delay(250);
 
     chassis.moveToPoint(-21, -14, 2000);
 
@@ -325,11 +331,12 @@ void redMogo() { //YAY WORKS
 
     chassis.turnToHeading(-45, 1000);
     chassis.waitUntilDone();
-    intakeState = 2;
-    chassis.moveToPoint(-38.8, 3.02, 2000);
+    pros::delay(250);
+    //intakeState = 2;
+    chassis.moveToPoint(-45.8, 9.02, 2000, {.maxSpeed = 60});
     chassis.waitUntilDone();
     pros::delay(400);
-    intakeState = 1;
+    //intakeState = 1;
     pros::delay(1000);
 
 
@@ -350,7 +357,7 @@ void redMogo() { //YAY WORKS
     //option number dos: straight to ladder
     //touches ladder in center for some reason
     chassis.moveToPoint(-23, -10, 2000, {.forwards = false});
-    chassis.moveToPoint(5.9, -47.1, 5000, {.forwards = false, .minSpeed = 80});
+    chassis.moveToPoint(4.8, -47.4, 5000, {.forwards = false, .minSpeed = 80});
     chassis.waitUntilDone();
     pidActive = true;
     lbTarget = 35;
@@ -368,7 +375,7 @@ void redMogo() { //YAY WORKS
 
 }
 
-void blueMogoRush() { //need to test a little more
+void blueMogoRush() { 
     //goal rush
     intakeState = 3;
     secondStage.move_voltage(0);
@@ -412,18 +419,16 @@ void blueMogoRush() { //need to test a little more
     chassis.waitUntilDone();
     pros::delay(900); //TODO: decrease
 
-    chassis.turnToHeading(-114, 750);
-    intakeState = 2;
+    chassis.turnToHeading(-109.6, 750);
     chassis.waitUntilDone();
-
-    chassis.moveToPoint(-25.7, -10.5, 1000, {.minSpeed = 90});
+    chassis.moveToPoint(-29.1, -10.6, 2000, {.maxSpeed = 60});
     chassis.waitUntilDone();
-    intakeState = 1;
     pros::delay(600);
 
     //move to ladder
     chassis.moveToPoint(0.8, -0.1, 1000, {.forwards = false, .maxSpeed = 40});
-    chassis.waitUntilDone();
+    chassis.waitUntil(15);
+    clampState = 0;
 
     chassis.turnToHeading(35, 600);
     pros::delay(100);
@@ -502,21 +507,21 @@ void redMogoRush() {
 
 
 
-    chassis.turnToHeading(115.3, 700);
+    chassis.turnToHeading(111.6, 700);
 
 
-
-    chassis.moveToPoint(32.97, -0.3, 1000, {.minSpeed = 90});
-    intakeState = 2;
+    chassis.moveToPoint(32.4, 1.1, 1000, {.maxSpeed = 60});
     chassis.waitUntilDone();
-    intakeState = 1;
-    pros::delay(600);
+    pros::delay(1000);
+
 
     // //move to ladder
     chassis.moveToPoint(17.7, 3.1, 1000, {.forwards = false});
     chassis.waitUntilDone();
 
     chassis.turnToHeading(-50.7, 600);
+    chassis.waitUntilDone();
+    clampState = 0;
     pros::delay(100);
     chassis.moveToPoint(-24.4, 31.8, 4000);
     chassis.waitUntilDone();
@@ -662,12 +667,13 @@ void autonomous() {
     // filePath.follow();
   
     //redRingSide();
-    //blueRingSide();
+    blueRingSide();
     
-    blueMogo(); 
+    //blueMogo(); 
     
     //redMogo();
     //blueMogoRush();
+    //redMogoRush();
     //redSigSoloWP();
     //blueSigSoloWP();
 }
