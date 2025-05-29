@@ -28,7 +28,7 @@ void intakeInit() {
     optical.set_led_pwm(100);
 
     pros::Task intakeTask(runIntake, "intake");
-    pros::Task colorTask(colorSort, "color sort");
+    //pros::Task colorTask(colorSort, "color sort");
 }
 
 void updateIntake() {
