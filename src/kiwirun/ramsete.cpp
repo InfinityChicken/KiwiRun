@@ -132,9 +132,6 @@ void Path::ramseteStep(int index) {
     this->config.leftMotors.move_velocity(leftRPMCommand); // velocity sent to motors
     this->config.rightMotors.move_velocity(rightRPMCommand);
 
-    // leftBack.move_velocity(leftRPMCommand / 3); //* sketch 55w implementation lol but it'll work
-    // rightBack.move_velocity(rightRPMCommand / 3);
-
     debugLine.append("current x inches: " + std::to_string(pose.x) + "\n"); //*DEBUG LINES FOR CURRENT XYTHETA
     debugLine.append("current y inches: " + std::to_string(pose.y) + "\n");
 
