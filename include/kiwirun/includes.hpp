@@ -3,5 +3,6 @@
 
 #include "kiwirun/config.hpp"
 #include "kiwirun/path.hpp"
+#include <fstream>
 
 #endif

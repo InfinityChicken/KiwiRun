@@ -116,7 +116,9 @@ void lemlib::Chassis::moveToPoint(float x, float y, int timeout, MoveToPointPara
 
         // move the drivetrain
         drivetrain.leftMotors->move(leftPower);
+ 
         drivetrain.rightMotors->move(rightPower);
+        
 
         // delay to save resources
         pros::delay(10);
@@ -125,6 +127,7 @@ void lemlib::Chassis::moveToPoint(float x, float y, int timeout, MoveToPointPara
     // stop the drivetrain
     drivetrain.leftMotors->move(0);
     drivetrain.rightMotors->move(0);
+   
     // set distTraveled to -1 to indicate that the function has finished
     distTraveled = -1;
     this->endMotion();

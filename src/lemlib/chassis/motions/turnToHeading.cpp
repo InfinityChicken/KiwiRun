@@ -76,12 +76,19 @@ void lemlib::Chassis::turnToHeading(float theta, int timeout, TurnToHeadingParam
         drivetrain.leftMotors->move(motorPower);
         drivetrain.rightMotors->move(-motorPower);
 
+        drivetrain.leftMotors->move(motorPower);
+       
+        drivetrain.rightMotors->move(-motorPower);
+       
+
         pros::delay(10);
     }
 
     // stop the drivetrain
     drivetrain.leftMotors->move(0);
+
     drivetrain.rightMotors->move(0);
+   
     // set distTraveled to -1 to indicate that the function has finished
     distTraveled = -1;
     this->endMotion();
