@@ -15,26 +15,26 @@ namespace kiwi {
             int index = 0;
             int count = 1;
 
-            std::deque<float> linearVelocityHistory;
-            std::deque<float> angularVelocityHistory;
+            // std::deque<float> linearVelocityHistory;
+            // std::deque<float> angularVelocityHistory;
 
-            const int historySize = 5; 
+            // const int historySize = 5; 
 
-            // helper function to average velocity over last 5 values
-            auto getAverage = [&](std::deque<float>& history, float newValue) {
-                history.push_back(newValue); // add newest value
+            // // helper function to average velocity over last 5 values
+            // auto getAverage = [&](std::deque<float>& history, float newValue) {
+            //     history.push_back(newValue); // add newest value
 
-                if (history.size() > historySize) {
-                    history.pop_front(); // remove oldest if too many
-                }
+            //     if (history.size() > historySize) {
+            //         history.pop_front(); // remove oldest if too many
+            //     }
 
-                float total = 0;
-                for (float value : history) {
-                    total += value;
-                }
+            //     float total = 0;
+            //     for (float value : history) {
+            //         total += value;
+            //     }
 
-                return total / history.size(); // return average
-            };
+            //     return total / history.size(); // return average
+            // };
 
             // wait until robot starts moving
             while(leftMotors.get_actual_velocity() < 10 && rightMotors.get_actual_velocity() < 10) {
