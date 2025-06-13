@@ -62,7 +62,7 @@ lemlib::Chassis chassis(drivetrain, linearController, angularController, sensors
 std::vector<std::reference_wrapper<float>> subsysStates = {intakeState, clampState, lbTarget};
 std::vector<std::string> subsysNames = {"intake", "mogo clamp", "lb target"};
 
-kiwi::Config config(1.7, 0.7, 3, 4, 
+kiwi::Config config(2, 0.7, 3, 4, 
     subsysStates,
     subsysNames,
     chassis,
